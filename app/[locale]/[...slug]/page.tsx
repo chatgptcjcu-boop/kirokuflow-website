@@ -3,13 +3,30 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { CheckoutForm } from '@/app/components/CheckoutForm';
 import { SiteChrome } from '@/app/components/SiteChrome';
-import { Locale, normalizeLocale, siteContent } from '@/src/lib/siteContent';
+import { Locale, normalizeLocale, publicLocale, siteContent } from '@/src/lib/siteContent';
 
-const pageSlugs = ['features', 'use-cases', 'pricing', 'checkout', 'blog', 'about', 'contact', 'privacy', 'terms', 'legal/tokushoho'];
+const pageSlugs = [
+  'features',
+  'use-cases',
+  'pricing',
+  'checkout',
+  'blog',
+  'about',
+  'privacy',
+  'terms',
+  'legal/tokushoho',
+  'backoffice-dx-guide',
+  'audit-trail-guide',
+  'subsidy-management-guide',
+  'google-sheets-gas-workflow',
+  'payment-notification-workflow',
+  'ai-administration-governance'
+];
 
 export function generateStaticParams() {
   return pageSlugs.flatMap((slug) => [
     { locale: 'zh-TW', slug: slug.split('/') },
+    { locale: 'ja', slug: slug.split('/') },
     { locale: 'ja-JP', slug: slug.split('/') }
   ]);
 }
@@ -47,6 +64,7 @@ export default async function ContentPage({
 
 function renderPage(path: string, locale: Locale, selectedPlan?: string) {
   const t = siteContent[locale];
+  const localePath = publicLocale(locale);
 
   if (path === 'features') {
     return (
@@ -93,7 +111,7 @@ function renderPage(path: string, locale: Locale, selectedPlan?: string) {
                   <li key={feature}>{feature}</li>
                 ))}
               </ul>
-              <Link className="button primary" href={`/${locale}/checkout?plan=${plan.id}`}>
+              <Link className="button primary" href={`/${localePath}/checkout?plan=${plan.id}`}>
                 {locale === 'ja-JP' ? '申し込む' : '選擇方案'}
               </Link>
             </article>
@@ -139,44 +157,26 @@ function renderPage(path: string, locale: Locale, selectedPlan?: string) {
     );
   }
 
-  if (path === 'contact') {
-    return (
-      <section className="container page-section grid-2">
-        <div className="card">
-          <h2>{locale === 'ja-JP' ? '導入相談' : '導入討論'}</h2>
-          <p>{locale === 'ja-JP' ? '正式フォーム連携前の静的版です。公開時はフォーム送信先を追加してください。' : '目前是靜態官網版本，上線時可接表單服務、GAS 或 CRM。'}</p>
-        </div>
-        <form className="form-panel form-grid">
-          <label>
-            {locale === 'ja-JP' ? 'お名前' : '姓名'}
-            <input />
-          </label>
-          <label>
-            Email
-            <input type="email" />
-          </label>
-          <label>
-            {locale === 'ja-JP' ? 'ご相談内容' : '需求內容'}
-            <textarea />
-          </label>
-          <button className="button primary" type="button">
-            {locale === 'ja-JP' ? '送信準備中' : '表單準備中'}
-          </button>
-        </form>
-      </section>
-    );
-  }
-
   return (
-    <section className="container page-section">
+    <section className="container page-section grid-2">
       <article className="card">
         <h2>{t.pages[path as keyof typeof t.pages][0]}</h2>
         <p>{t.pages[path as keyof typeof t.pages][1]}</p>
         <p>
-          {locale === 'ja-JP'
-            ? 'このページは初期公開用のテンプレートです。正式な法人情報、販売条件、個人情報の取り扱いは運営開始時に更新してください。'
-            : '此頁為第一階段官網模板。正式公司資料、交易條件與個資處理細節，請在營運主體確定後更新。'}
+          KirokuFlow｜紀錄流 是一套面向台灣與日本市場的輕量行政與經費流程管理工具，協助會議、委員會、學校計畫、研究補助、協會活動與專案型工作建立可追蹤、可交接、可稽核的數位流程。
         </p>
+      </article>
+      <article className="card">
+        <h3>{locale === 'ja-JP' ? '関連する導線' : '相關導線'}</h3>
+        <p>{locale === 'ja-JP' ? '記事、テンプレート、導入相談へつなげるための支柱ページです。' : '此頁作為文章、模板與導入諮詢之間的支柱頁。'}</p>
+        <div className="hero-actions">
+          <Link className="button primary" href={`/${localePath}/blog`}>
+            Blog
+          </Link>
+          <Link className="button secondary" href={`/${localePath}/templates`}>
+            Templates
+          </Link>
+        </div>
       </article>
     </section>
   );

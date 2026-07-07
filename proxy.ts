@@ -1,20 +1,20 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const locales = ['zh-TW', 'ja-JP'];
-const defaultLocale = 'zh-TW';
+const locales = ['zh-TW', 'ja-JP', 'ja'];
+const defaultLocale = 'ja';
 
 function detectLocale(request: NextRequest) {
-  const cookieLocale = request.cookies.get('NEXT_LOCALE')?.value;
+  const cookieLocale = request.cookies.get('kf_locale')?.value || request.cookies.get('NEXT_LOCALE')?.value;
   if (cookieLocale && locales.includes(cookieLocale)) return cookieLocale;
 
   const accept = request.headers.get('accept-language') || '';
-  if (accept.toLowerCase().includes('ja')) return 'ja-JP';
+  if (accept.toLowerCase().includes('zh')) return 'zh-TW';
   return defaultLocale;
 }
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  if (pathname.startsWith('/api') || pathname.startsWith('/_next') || pathname.includes('.')) {
+  if (pathname.startsWith('/api') || pathname.startsWith('/admin') || pathname.startsWith('/_next') || pathname.includes('.')) {
     return NextResponse.next();
   }
 

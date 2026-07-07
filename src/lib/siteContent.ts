@@ -1,10 +1,18 @@
 export const locales = ['zh-TW', 'ja-JP'] as const;
 export type Locale = (typeof locales)[number];
 
-export const defaultLocale: Locale = 'zh-TW';
+export const defaultLocale: Locale = 'ja-JP';
 
 export function normalizeLocale(locale: string): Locale {
-  return locale === 'ja-JP' ? 'ja-JP' : 'zh-TW';
+  return locale === 'ja' || locale === 'ja-JP' ? 'ja-JP' : 'zh-TW';
+}
+
+export function publicLocale(locale: Locale) {
+  return locale === 'ja-JP' ? 'ja' : 'zh-TW';
+}
+
+export function oppositeLocale(locale: Locale) {
+  return locale === 'ja-JP' ? 'zh-TW' : 'ja';
 }
 
 const sharedPlans = [
@@ -35,6 +43,7 @@ export const siteContent = {
       useCases: '使用情境',
       pricing: '方案',
       blog: '專欄',
+      templates: '模板',
       about: '關於',
       contact: '聯絡',
       cta: '查看方案',
@@ -99,6 +108,13 @@ export const siteContent = {
       checkout: ['下單結帳', '選擇服務方案後，系統會導向 Stripe Checkout。'],
       privacy: ['隱私權政策', '我們僅為聯絡、服務提供、交易處理與必要維運使用資料。'],
       terms: ['服務條款', '服務範圍、交付內容、付款與取消規則以雙方確認之方案為準。'],
+      templates: ['行政模板', '下載或試用出席、經費、稽核欄位與 Google Sheets + GAS 流程範本。'],
+      'backoffice-dx-guide': ['行政 DX 指南', '小型組織可先從記錄、審核、通知與留存流程開始整理行政 DX。'],
+      'audit-trail-guide': ['稽核留痕指南', '建立可交接、可查核的行政與經費流程紀錄。'],
+      'subsidy-management-guide': ['補助案管理指南', '補助案文章屬高風險內容，應保留官方來源並經人工審稿。'],
+      'google-sheets-gas-workflow': ['Google Sheets + GAS 流程', '用輕量工具先建立可追蹤的行政流程 MVP。'],
+      'payment-notification-workflow': ['匯款通知流程', '整理付款前後的收款資料、通知與留痕。'],
+      'ai-administration-governance': ['AI 行政治理', 'AI 產文與行政流程設計都需要來源、責任鏈與審稿機制。'],
       'legal/tokushoho': ['特定商取引法表示', '日本市場正式營運前，本頁作為揭露資訊模板，正式資料需於公司成立後補齊。']
     },
     checkout: {
@@ -116,6 +132,7 @@ export const siteContent = {
       useCases: '活用シーン',
       pricing: '料金',
       blog: 'コラム',
+      templates: 'テンプレート',
       about: '準備室',
       contact: '問い合わせ',
       cta: '料金を見る',
@@ -180,6 +197,13 @@ export const siteContent = {
       checkout: ['お申し込み・決済', 'サービスプランを選択後、Stripe Checkout へ進みます。'],
       privacy: ['プライバシーポリシー', 'お問い合わせ、サービス提供、取引処理、必要な運用のために情報を利用します。'],
       terms: ['利用規約', 'サービス範囲、納品内容、支払い、キャンセル条件は確認済みプランに基づきます。'],
+      templates: ['テンプレート', '出席、経費、監査項目、Google Sheets + GAS の軽量フローを試せるテンプレート入口です。'],
+      'backoffice-dx-guide': ['バックオフィス DX ガイド', '小さな組織の行政 DX は、記録、確認、通知、保存の流れから始められます。'],
+      'audit-trail-guide': ['監査証跡ガイド', '引き継ぎと確認に耐えられる事務・経費フローの記録設計。'],
+      'subsidy-management-guide': ['補助金管理ガイド', '補助金記事は高リスク内容として、公式来源と人によるレビューを必須にします。'],
+      'google-sheets-gas-workflow': ['Google Sheets + GAS フロー', '軽量な仕組みから追跡可能な事務フローを作る方法。'],
+      'payment-notification-workflow': ['支払い通知フロー', '振込先情報、通知、確認状態を残す支払い前後の業務整理。'],
+      'ai-administration-governance': ['AI 行政治理', 'AI 生成と行政業務には、来源、責任鏈、審稿プロセスが必要です。'],
       'legal/tokushoho': ['特定商取引法に基づく表記', '日本での正式運営前のテンプレートです。会社設立後に正式情報を記載します。']
     },
     checkout: {

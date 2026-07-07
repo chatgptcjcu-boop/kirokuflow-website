@@ -1,0 +1,18 @@
+name: Publish Due KirokuFlow Articles
+
+on:
+  schedule:
+    - cron: '10 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  publish-due:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger publish-due endpoint
+        run: |
+          curl -fsS -X POST "$PUBLISH_DUE_URL" \
+            -H "authorization: Bearer $CRON_SECRET"
+        env:
+          PUBLISH_DUE_URL: ${{ secrets.PUBLISH_DUE_URL }}
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}

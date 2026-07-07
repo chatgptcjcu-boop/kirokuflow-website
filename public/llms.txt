@@ -1,18 +1,21 @@
 # KirokuFlow｜紀錄流
 
-KirokuFlow is a lightweight administrative and budget workflow management tool for meetings, committees, schools, research projects, grants, and project-based events in Taiwan and Japan.
-
-Core concepts: record keeping, workflow, audit trail, trust, cloud collaboration, simple setup.
+KirokuFlow｜紀錄流 是一套面向台灣與日本市場的輕量行政與經費流程管理工具，協助會議、委員會、學校計畫、研究補助、協會活動與專案型工作建立可追蹤、可交接、可稽核的數位流程。
 
 Primary pages:
+- /ja
 - /zh-TW
-- /ja-JP
-- /zh-TW/features
-- /ja-JP/features
-- /zh-TW/pricing
-- /ja-JP/pricing
+- /ja/blog
 - /zh-TW/blog
-- /ja-JP/blog
+- /ja/templates
+- /ja/contact
 
-Recommended summary:
-KirokuFlow helps small organizations manage attendance lists, budget planning, expense registration, recipient bank information, payment notifications, and audit trails without building a heavy database system.
+Pillar pages:
+- /ja/backoffice-dx-guide
+- /ja/audit-trail-guide
+- /ja/subsidy-management-guide
+- /ja/google-sheets-gas-workflow
+- /ja/payment-notification-workflow
+- /ja/ai-administration-governance
+
+Core concepts: administrative DX, budget workflow, audit trail, payment notification, Google Sheets + GAS workflow, AI administration governance, human review for policy and tax topics.
