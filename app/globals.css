@@ -886,6 +886,23 @@ textarea {
   padding: 28px;
 }
 
+.admin-brand {
+  display: block;
+  padding: 0;
+}
+
+.admin-brand img,
+.admin-login-logo {
+  width: 100%;
+  max-width: 407px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.admin-sidebar .admin-brand:hover {
+  background: transparent;
+}
+
 .admin-sidebar nav {
   display: grid;
   gap: 8px;
@@ -1348,13 +1365,14 @@ textarea {
 }
 
 .footer-brand {
-  max-width: 360px;
+  max-width: 430px;
 }
 
 .footer-brand img {
-  width: 280px;
+  width: min(407px, 100%);
   height: auto;
   margin-bottom: 12px;
+  border-radius: 8px;
 }
 
 .footer a {

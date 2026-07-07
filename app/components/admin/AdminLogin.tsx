@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useState } from 'react';
 
 export function AdminLogin() {
@@ -24,6 +25,7 @@ export function AdminLogin() {
   return (
     <main className="admin-login">
       <form className="form-panel form-grid" onSubmit={submit}>
+        <Image className="admin-login-logo" src="/assets/brand/kirokuflow-group-footer-bar.png" alt="KirokuFlow Group" width={407} height={81} priority />
         <h1>KirokuFlow Admin</h1>
         <p>Enter ADMIN_PASSWORD to access the content generator MVP.</p>
         <label>

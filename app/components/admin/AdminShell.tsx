@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 const nav = [
@@ -14,7 +15,9 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="admin-shell">
       <aside className="admin-sidebar">
-        <strong>KirokuFlow 2.0</strong>
+        <Link className="admin-brand" href="/admin" aria-label="KirokuFlow admin dashboard">
+          <Image src="/assets/brand/kirokuflow-group-footer-bar.png" alt="KirokuFlow Group" width={407} height={81} priority />
+        </Link>
         <nav>
           {nav.map(([href, label]) => (
             <Link key={href} href={href}>

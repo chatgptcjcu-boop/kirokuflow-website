@@ -36,7 +36,7 @@ export function SiteChrome({ locale, children }: { locale: Locale; children: Rea
       <footer className="footer">
         <div className="container footer-inner">
           <div className="footer-brand">
-            <Image src="/assets/brand/kirokuflow-group-logo-primary.png" alt="KirokuFlow Group" width={575} height={150} />
+            <Image src="/assets/brand/kirokuflow-group-footer-bar.png" alt="KirokuFlow Group" width={407} height={81} />
             <p>{locale === 'ja-JP' ? '記録、フロー、信頼をつなぐ事務管理ツール。' : '記錄、流程、信任，讓管理更流暢。'}</p>
           </div>
           <div className="nav-links">
