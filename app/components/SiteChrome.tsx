@@ -15,9 +15,10 @@ export function SiteChrome({ locale, children }: { locale: Locale; children: Rea
             <Image className="brand-logo" src="/assets/kf-logo-primary-a.svg" alt="KirokuFlow" width={360} height={96} priority />
           </Link>
           <nav className="nav-links" aria-label="Primary navigation">
-            <Link href={`/${currentLocale}/blog`}>{t.nav.blog}</Link>
-            <Link href={`/${currentLocale}/templates`}>{t.nav.templates}</Link>
-            <Link href={`/${currentLocale}/use-cases`}>{t.nav.useCases}</Link>
+            <Link href={`/${currentLocale}/ai-workflow`}>{t.nav.services}</Link>
+            <Link href={`/${currentLocale}/government-ai-trends`}>{t.nav.trends}</Link>
+            <Link href={`/${currentLocale}/resources`}>{t.nav.resources}</Link>
+            <Link href={`/${currentLocale}/case-studies`}>{t.nav.cases}</Link>
             <Link href={`/${currentLocale}/contact`}>{t.nav.contact}</Link>
             <Link href="/admin">Admin</Link>
           </nav>
@@ -41,6 +42,7 @@ export function SiteChrome({ locale, children }: { locale: Locale; children: Rea
           <div className="nav-links">
             <Link href={`/${currentLocale}/privacy`}>{locale === 'ja-JP' ? 'プライバシー' : '隱私權'}</Link>
             <Link href={`/${currentLocale}/terms`}>{locale === 'ja-JP' ? '利用規約' : '服務條款'}</Link>
+            <Link href={`/${currentLocale}/blog`}>{t.nav.blog}</Link>
             <Link href={`/${currentLocale}/legal/tokushoho`}>{locale === 'ja-JP' ? '特商法表記' : '特商法表示'}</Link>
           </div>
         </div>

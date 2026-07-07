@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { CheckoutForm } from '@/app/components/CheckoutForm';
 import { LeadForm } from '@/app/components/LeadForm';
 import { SiteChrome } from '@/app/components/SiteChrome';
+import { AiServicePage, getAiServicePage } from '@/src/lib/aiServiceContent';
 import { getPillarPage, PillarPage } from '@/src/lib/pillarContent';
 import { Locale, normalizeLocale, publicLocale, siteContent } from '@/src/lib/siteContent';
 import { getSiteUrl } from '@/src/lib/siteUrl';
@@ -19,6 +20,13 @@ const pageSlugs = [
   'privacy',
   'terms',
   'legal/tokushoho',
+  'ai-workflow',
+  'government-ai-trends',
+  'rag-knowledge-base',
+  'content-factory',
+  'case-studies',
+  'ai-governance',
+  'resources',
   'backoffice-dx-guide',
   'audit-trail-guide',
   'subsidy-management-guide',
@@ -40,12 +48,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const locale = normalizeLocale(rawLocale);
   const path = slug.join('/');
   const pillar = getPillarPage(locale, path);
+  const service = getAiServicePage(locale, path);
   const t = siteContent[locale];
   const page = t.pages[path as keyof typeof t.pages];
-  if (!pillar && !page) return {};
+  if (!pillar && !service && !page) return {};
   const localePath = publicLocale(locale);
-  const title = pillar?.title || page[0];
-  const description = pillar?.description || page[1];
+  const title = service?.title || pillar?.title || page[0];
+  const description = service?.description || pillar?.description || page[1];
   return {
     title,
     description,
@@ -77,13 +86,16 @@ export default async function ContentPage({
   const t = siteContent[locale];
   const page = t.pages[path as keyof typeof t.pages];
   const pillar = getPillarPage(locale, path);
+  const service = getAiServicePage(locale, path);
 
-  if (!page) notFound();
+  if (!page && !pillar && !service) notFound();
 
   return (
     <SiteChrome locale={locale}>
       <main>
-        {pillar ? (
+        {service ? (
+          <AiServiceLanding page={service} locale={locale} />
+        ) : pillar ? (
           <PillarGuide page={pillar} locale={locale} />
         ) : (
           <>
@@ -99,6 +111,173 @@ export default async function ContentPage({
         )}
       </main>
     </SiteChrome>
+  );
+}
+
+function AiServiceLanding({ page, locale }: { page: AiServicePage; locale: Locale }) {
+  const localePath = publicLocale(locale);
+  const pageUrl = `${getSiteUrl()}/${localePath}/${page.slug}`;
+  const related = page.related.filter(Boolean);
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': page.layer === 'service' ? 'Service' : 'Article',
+    name: page.title,
+    description: page.description,
+    provider: { '@type': 'Organization', name: 'KirokuFlow' },
+    url: pageUrl
+  };
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: page.faq.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer }
+    }))
+  };
+
+  return (
+    <>
+      <article className="container service-shell">
+        <nav className="breadcrumb">
+          <Link href={`/${localePath}`}>KirokuFlow</Link>
+          <span>/</span>
+          <span>{page.eyebrow}</span>
+        </nav>
+        <header className="service-hero">
+          <div>
+            <span className={`service-layer layer-${page.layer}`}>{page.eyebrow}</span>
+            <h1>{page.title}</h1>
+            <p>{page.description}</p>
+            <div className="hero-actions">
+              <Link className="button primary" href={`/${localePath}/contact`}>
+                {page.primaryCta}
+              </Link>
+              <Link className="button secondary" href={`/${localePath}/${related[0] || 'resources'}`}>
+                {page.secondaryCta}
+              </Link>
+            </div>
+          </div>
+          <div className="service-map" aria-label="AI workflow diagram">
+            {page.flow.map((step, index) => (
+              <div className="service-map-node" key={step.title}>
+                <span>{index + 1}</span>
+                <strong>{step.title}</strong>
+                <small>{step.body}</small>
+              </div>
+            ))}
+          </div>
+        </header>
+
+        <section className="metric-strip" aria-label="Service metrics">
+          {page.metrics.map((metric) => (
+            <div key={metric.label}>
+              <strong>{metric.value}</strong>
+              <span>{metric.label}</span>
+            </div>
+          ))}
+        </section>
+
+        <section className="service-bullets">
+          {page.bullets.map((bullet) => (
+            <div key={bullet}><span>✓</span>{bullet}</div>
+          ))}
+        </section>
+
+        <section className="service-sections">
+          {page.sections.map((section) => (
+            <article className="service-section-card" key={section.title}>
+              <h2>{section.title}</h2>
+              <p>{section.body}</p>
+              <ul>
+                {section.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </section>
+
+        {page.slug === 'resources' ? <ResourceIndex localePath={localePath} /> : null}
+
+        {page.slug === 'case-studies' ? <CaseStudyGrid /> : null}
+
+        <section className="related-panel">
+          <h2>{locale === 'ja-JP' ? '関連ページ' : '相關頁面'}</h2>
+          <div className="grid-3">
+            {related.map((slug) => (
+              <Link className="card" href={`/${localePath}/${slug}`} key={slug}>
+                <h3>{slug.replaceAll('-', ' ')}</h3>
+                <p>{locale === 'ja-JP' ? 'このテーマに関連する KirokuFlow のページです。' : '此頁與本主題相關，可接續閱讀。'}</p>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <section className="faq-panel">
+          <h2>FAQ</h2>
+          {page.faq.map((item) => (
+            <details key={item.question}>
+              <summary>{item.question}</summary>
+              <p>{item.answer}</p>
+            </details>
+          ))}
+        </section>
+
+        <section className="cta-panel">
+          <h2>{locale === 'ja-JP' ? 'AI 文書ワークフローを相談する' : '討論 AI 文件工作流導入'}</h2>
+          <p>{locale === 'ja-JP' ? '現在の文書、知識庫、審査、公開フローを棚卸しし、段階的な導入案に落とし込めます。' : '可以先盤點目前的文件、知識庫、審核與發布流程，再規劃分階段導入。'}</p>
+          <LeadForm locale={locale} sourceArticleSlug={page.slug} inquiryType={page.layer} />
+        </section>
+      </article>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+    </>
+  );
+}
+
+function ResourceIndex({ localePath }: { localePath: string }) {
+  const resources = [
+    ['backoffice-dx-guide', '行政 DX / Backoffice DX'],
+    ['audit-trail-guide', '監査証跡 / Audit Trail'],
+    ['subsidy-management-guide', '補助金・研究費管理'],
+    ['google-sheets-gas-workflow', 'Google Sheets + GAS'],
+    ['payment-notification-workflow', '支払通知フロー'],
+    ['ai-administration-governance', 'AI 行政治理'],
+    ['blog', 'Blog / MDX articles'],
+    ['templates', 'Templates']
+  ];
+  return (
+    <section className="resource-index">
+      <h2>Resource Library</h2>
+      <div className="grid-2">
+        {resources.map(([slug, label]) => (
+          <Link className="resource-link" href={`/${localePath}/${slug}`} key={slug}>
+            <span>{label}</span>
+            <strong>Read</strong>
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function CaseStudyGrid() {
+  const cases = [
+    ['学校プロジェクト', '分散した要項、申請、謝金、通知を一つの AI 文書フローに整理。'],
+    ['委員会運営', '年度交代時の引き継ぎ資料と承認理由をナレッジベース化。'],
+    ['小規模法人', '社内規程、FAQ、支払い通知、問い合わせ対応を RAG 化。']
+  ];
+  return (
+    <section className="case-grid">
+      {cases.map(([title, body]) => (
+        <article className="card" key={title}>
+          <span className="badge">Case</span>
+          <h2>{title}</h2>
+          <p>{body}</p>
+        </article>
+      ))}
+    </section>
   );
 }
 

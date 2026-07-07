@@ -1,9 +1,23 @@
 import type { MetadataRoute } from 'next';
+import { getAllAiServiceSlugs } from '@/src/lib/aiServiceContent';
 import { getAllBlogPosts } from '@/src/lib/blog';
 import { getSiteUrl } from '@/src/lib/siteUrl';
 import { publicLocale } from '@/src/lib/siteContent';
 
-const pageSlugs = ['', 'blog', 'templates', 'contact', 'backoffice-dx-guide', 'audit-trail-guide', 'subsidy-management-guide', 'google-sheets-gas-workflow', 'payment-notification-workflow', 'ai-administration-governance', 'legal/tokushoho'];
+const pageSlugs = [
+  '',
+  'blog',
+  'templates',
+  'contact',
+  ...getAllAiServiceSlugs(),
+  'backoffice-dx-guide',
+  'audit-trail-guide',
+  'subsidy-management-guide',
+  'google-sheets-gas-workflow',
+  'payment-notification-workflow',
+  'ai-administration-governance',
+  'legal/tokushoho'
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const site = getSiteUrl();

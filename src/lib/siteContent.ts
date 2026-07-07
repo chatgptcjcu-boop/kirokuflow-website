@@ -44,18 +44,22 @@ export const siteContent = {
       pricing: '方案',
       blog: '專欄',
       templates: '模板',
+      services: 'AI 服務',
+      trends: '趨勢',
+      resources: '知識庫',
+      cases: '案例',
       about: '關於',
       contact: '聯絡',
       cta: '查看方案',
       otherLocale: '日本語'
     },
     hero: {
-      eyebrow: '輕量行政與經費流程管理工具',
-      title: '讓行政紀錄自然流動，讓經費流程清楚留痕。',
+      eyebrow: 'AI 文件工作流與行政 DX 服務',
+      title: '把文件、知識庫、審核與留痕，串成可用的 AI 工作流。',
       description:
-        'KirokuFlow 協助會議、委員會、學校計畫與專案型活動，把名單、預算、支出、收款資料與匯款通知串成可追蹤的工作流。',
-      primaryCta: '查看導入方案',
-      secondaryCta: '了解功能'
+        'KirokuFlow 協助團隊整理內部文件、行政流程、RAG 知識庫、內容生成與審核紀錄，讓 AI 不只是回答問題，而是進入可追蹤的工作流程。',
+      primaryCta: '查看 AI 服務',
+      secondaryCta: '了解知識庫'
     },
     trust: [
       ['記錄完整', '重要內容有據可循'],
@@ -109,6 +113,13 @@ export const siteContent = {
       privacy: ['隱私權政策', '我們僅為聯絡、服務提供、交易處理與必要維運使用資料。'],
       terms: ['服務條款', '服務範圍、交付內容、付款與取消規則以雙方確認之方案為準。'],
       templates: ['行政模板', '下載或試用出席、經費、稽核欄位與 Google Sheets + GAS 流程範本。'],
+      'ai-workflow': ['AI 文件工作流', '把文件匯入、RAG、審核、通知與留痕整合成可落地的 AI 工作流程。'],
+      'government-ai-trends': ['政府 AI 趨勢資料庫', '整理日本 GENAI、各國 AI 政策與企業可學習的治理重點。'],
+      'rag-knowledge-base': ['RAG 知識庫', '建立可引用來源、可控權限、可追蹤使用紀錄的內部知識庫。'],
+      'content-factory': ['內容生成工廠', '將題庫、AI 草稿、審稿、排程與發布整合成內容生產流程。'],
+      'case-studies': ['案例入口', '用時間節省、文件量、品質與查詢成本呈現導入成果。'],
+      'ai-governance': ['AI 治理', '設計 AI 使用規則、資料安全、權限、人工審核與使用紀錄。'],
+      resources: ['知識庫', '集中白皮書、教學文、趨勢解析、Blog 與既有 SEO 支柱頁。'],
       'backoffice-dx-guide': ['行政 DX 指南', '小型組織可先從記錄、審核、通知與留存流程開始整理行政 DX。'],
       'audit-trail-guide': ['稽核留痕指南', '建立可交接、可查核的行政與經費流程紀錄。'],
       'subsidy-management-guide': ['補助案管理指南', '補助案文章屬高風險內容，應保留官方來源並經人工審稿。'],
@@ -133,18 +144,22 @@ export const siteContent = {
       pricing: '料金',
       blog: 'コラム',
       templates: 'テンプレート',
+      services: 'AI サービス',
+      trends: 'トレンド',
+      resources: '知識庫',
+      cases: '事例',
       about: '準備室',
       contact: '問い合わせ',
       cta: '料金を見る',
       otherLocale: '繁體中文'
     },
     hero: {
-      eyebrow: '軽量な事務・予算フロー管理ツール',
-      title: '事務記録を自然に流し、支払いプロセスを見える化する。',
+      eyebrow: 'AI 文書ワークフローと行政 DX サービス',
+      title: '文書、知識庫、審査、記録をつなぐ AI 業務フローを作る。',
       description:
-        'KirokuFlow は、会議、委員会、学校プロジェクト、研究費、イベント運営に必要な名簿、予算、支出、振込先情報、振込通知を一つの流れとして管理します。',
-      primaryCta: '導入プランを見る',
-      secondaryCta: '機能を見る'
+        'KirokuFlow は、社内文書、行政フロー、RAG ナレッジベース、AI コンテンツ生成、審査記録を一つの流れとして設計します。',
+      primaryCta: 'AI サービスを見る',
+      secondaryCta: '知識庫を見る'
     },
     trust: [
       ['記録を整える', '重要内容をわかりやすく'],
@@ -198,6 +213,13 @@ export const siteContent = {
       privacy: ['プライバシーポリシー', 'お問い合わせ、サービス提供、取引処理、必要な運用のために情報を利用します。'],
       terms: ['利用規約', 'サービス範囲、納品内容、支払い、キャンセル条件は確認済みプランに基づきます。'],
       templates: ['テンプレート', '出席、経費、監査項目、Google Sheets + GAS の軽量フローを試せるテンプレート入口です。'],
+      'ai-workflow': ['AI 文書ワークフロー', '文書取り込み、RAG、審査、通知、証跡保存を一つの AI 業務フローにします。'],
+      'government-ai-trends': ['政府 AI トレンド', '日本 GENAI、各国 AI 政策、企業が学ぶべき実務ポイントを整理します。'],
+      'rag-knowledge-base': ['RAG ナレッジベース', '文書匯入、ベクトル化、引用來源、権限、利用ログを含む内部知識庫。'],
+      'content-factory': ['コンテンツ生成工場', 'SEO / GEO / GAI 記事の題材管理、生成、審稿、排程公開を支援します。'],
+      'case-studies': ['導入事例', '時間削減、文書量、確認品質、問い合わせ削減を示す事例入口。'],
+      'ai-governance': ['AI ガバナンス', 'データ安全、権限、審査、使用記録を設計する AI ガバナンスページ。'],
+      resources: ['知識庫', '白皮書、教學文、趨勢解析、支柱頁、Blog をまとめる知識庫入口。'],
       'backoffice-dx-guide': ['バックオフィス DX ガイド', '小さな組織の行政 DX は、記録、確認、通知、保存の流れから始められます。'],
       'audit-trail-guide': ['監査証跡ガイド', '引き継ぎと確認に耐えられる事務・経費フローの記録設計。'],
       'subsidy-management-guide': ['補助金管理ガイド', '補助金記事は高リスク内容として、公式来源と人によるレビューを必須にします。'],
