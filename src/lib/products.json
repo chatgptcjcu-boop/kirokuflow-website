@@ -1,0 +1,23 @@
+[
+  {
+    "id": "starter_setup",
+    "name_zh": "Starter Setup",
+    "name_ja": "スターター導入",
+    "currency": "jpy",
+    "price": 98000
+  },
+  {
+    "id": "committee_pack",
+    "name_zh": "Committee Pack",
+    "name_ja": "委員会パック",
+    "currency": "jpy",
+    "price": 198000
+  },
+  {
+    "id": "annual_admin_flow",
+    "name_zh": "Annual Admin Flow",
+    "name_ja": "年間事務フロー",
+    "currency": "jpy",
+    "price": 480000
+  }
+]
