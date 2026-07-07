@@ -1,15 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="820" height="180" viewBox="0 0 820 180" role="img" aria-label="KirokuFlow 紀錄流 logo">
-<rect width="820" height="180" fill="none"/>
-<path d="M80 70c8-24 35-31 54-17 14-31 65-26 75 9 27 4 43 23 40 50" fill="none" stroke="#5FA3A3" stroke-width="7" stroke-linecap="round"/>
-<path d="M54 42h88l34 34v82H54z" fill="#fff" stroke="#0D5B5A" stroke-width="8" stroke-linejoin="round"/>
-<path d="M142 42v36h34" fill="none" stroke="#D9B26F" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M82 88h52M82 112h44M82 136h56" stroke="#5FA3A3" stroke-width="8" stroke-linecap="round"/>
-<path d="M24 156c58-40 108-51 172-38M18 128c52-2 92 7 151 33" fill="none" stroke="#0D5B5A" stroke-width="8" stroke-linecap="round" opacity=".9"/>
-<circle cx="178" cy="130" r="34" fill="#fff" stroke="#0F1F2E" stroke-width="8"/>
-<path d="M160 130l13 13 28-30" fill="none" stroke="#D9B26F" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M230 78h0M253 78h0M276 78h0M299 78h0" stroke="#5FA3A3" stroke-width="8" stroke-linecap="round" opacity=".8"/>
-<path d="M340 30v120" stroke="#0D5B5A" stroke-width="3"/>
-<text x="380" y="95" font-family="Inter, Arial, sans-serif" font-size="62" font-weight="700" fill="#0F1F2E">Kiroku<tspan fill="#0D5B5A">Flow</tspan></text>
-<text x="680" y="95" font-family="Noto Sans TC, sans-serif" font-size="44" font-weight="600" fill="#0F1F2E">｜紀錄流</text>
-<text x="382" y="135" font-family="Noto Sans TC, sans-serif" font-size="20" font-weight="500" fill="#0D5B5A">記錄・流程・信任，讓管理更流暢</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1161" height="283" viewBox="0 0 1161 283" role="img" aria-label="KirokuFlow Group logo">
+  <image href="brand/kirokuflow-group-logo-lockup.png" x="0" y="0" width="1161" height="283" preserveAspectRatio="xMidYMid meet"/>
 </svg>

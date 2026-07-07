@@ -2,7 +2,7 @@
 <rect width="1200" height="630" fill="#FAF7F2"/>
 <rect x="72" y="72" width="1056" height="486" rx="36" fill="#fff" stroke="#E6F2F1"/>
 <circle cx="965" cy="160" r="170" fill="#E6F2F1"/>
-<image href="kf-logo-primary-a.svg" x="92" y="92" width="520" height="114"/>
+<image href="brand/kirokuflow-group-logo-lockup.png" x="92" y="92" width="620" height="152"/>
 <text x="100" y="330" fill="#0F1F2E" font-size="58" font-weight="800" font-family="Inter,Noto Sans TC,Noto Sans JP">事務記録を自然に流す</text>
 <text x="100" y="408" fill="#0D5B5A" font-size="40" font-family="Inter,Noto Sans TC,Noto Sans JP">支払いプロセスを見える化</text>
 <path d="M100 480h460" stroke="#D9B26F" stroke-width="12" stroke-linecap="round"/>

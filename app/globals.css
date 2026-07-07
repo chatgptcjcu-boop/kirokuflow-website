@@ -65,7 +65,7 @@ img {
 }
 
 .brand-logo {
-  width: 220px;
+  width: 260px;
   height: auto;
 }
 
@@ -1347,6 +1347,16 @@ textarea {
   gap: 24px;
 }
 
+.footer-brand {
+  max-width: 360px;
+}
+
+.footer-brand img {
+  width: 280px;
+  height: auto;
+  margin-bottom: 12px;
+}
+
 .footer a {
   text-decoration: none;
 }
@@ -1410,7 +1420,7 @@ textarea {
   }
 
   .brand-logo {
-    width: 172px;
+    width: 205px;
   }
 
   .nav-actions .button {

@@ -12,7 +12,7 @@ export function SiteChrome({ locale, children }: { locale: Locale; children: Rea
       <header className="nav">
         <div className="container nav-inner">
           <Link href={`/${currentLocale}`} aria-label="KirokuFlow home">
-            <Image className="brand-logo" src="/assets/kf-logo-primary-a.svg" alt="KirokuFlow" width={360} height={96} priority />
+            <Image className="brand-logo" src="/assets/brand/kirokuflow-group-logo-lockup.png" alt="KirokuFlow Group" width={1161} height={283} priority />
           </Link>
           <nav className="nav-links" aria-label="Primary navigation">
             <Link href={`/${currentLocale}/ai-workflow`}>{t.nav.services}</Link>
@@ -35,8 +35,8 @@ export function SiteChrome({ locale, children }: { locale: Locale; children: Rea
       {children}
       <footer className="footer">
         <div className="container footer-inner">
-          <div>
-            <strong>KirokuFlow｜紀錄流</strong>
+          <div className="footer-brand">
+            <Image src="/assets/brand/kirokuflow-group-logo-primary.png" alt="KirokuFlow Group" width={575} height={150} />
             <p>{locale === 'ja-JP' ? '記録、フロー、信頼をつなぐ事務管理ツール。' : '記錄、流程、信任，讓管理更流暢。'}</p>
           </div>
           <div className="nav-links">

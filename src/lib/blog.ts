@@ -127,8 +127,8 @@ export function buildArticleJsonLd(post: BlogPost) {
     author: { '@type': 'Organization', name: 'KirokuFlow' },
     publisher: {
       '@type': 'Organization',
-      name: 'KirokuFlow',
-      logo: { '@type': 'ImageObject', url: `${siteUrl}/assets/kf-logo-primary-a.svg` }
+      name: 'KirokuFlow Group',
+      logo: { '@type': 'ImageObject', url: `${siteUrl}/assets/brand/kirokuflow-group-logo-lockup.png` }
     },
     mainEntityOfPage: getPostUrl(post)
   };
