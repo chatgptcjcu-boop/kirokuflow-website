@@ -1,9 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { CheckoutForm } from '@/app/components/CheckoutForm';
+import { LeadForm } from '@/app/components/LeadForm';
 import { SiteChrome } from '@/app/components/SiteChrome';
+import { getPillarPage, PillarPage } from '@/src/lib/pillarContent';
 import { Locale, normalizeLocale, publicLocale, siteContent } from '@/src/lib/siteContent';
+import { getSiteUrl } from '@/src/lib/siteUrl';
 
 const pageSlugs = [
   'features',
@@ -31,6 +35,35 @@ export function generateStaticParams() {
   ]);
 }
 
+export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string[] }> }): Promise<Metadata> {
+  const { locale: rawLocale, slug } = await params;
+  const locale = normalizeLocale(rawLocale);
+  const path = slug.join('/');
+  const pillar = getPillarPage(locale, path);
+  const t = siteContent[locale];
+  const page = t.pages[path as keyof typeof t.pages];
+  if (!pillar && !page) return {};
+  const localePath = publicLocale(locale);
+  const title = pillar?.title || page[0];
+  const description = pillar?.description || page[1];
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `${getSiteUrl()}/${localePath}/${path}`,
+      languages: {
+        [locale === 'ja-JP' ? 'ja' : 'zh-TW']: `${getSiteUrl()}/${localePath}/${path}`,
+        [locale === 'ja-JP' ? 'zh-TW' : 'ja']: `${getSiteUrl()}/${locale === 'ja-JP' ? 'zh-TW' : 'ja'}/${path}`
+      }
+    },
+    openGraph: {
+      title,
+      description,
+      images: ['/assets/kf-og-home-zh-tw-v1.svg']
+    }
+  };
+}
+
 export default async function ContentPage({
   params,
   searchParams
@@ -43,22 +76,156 @@ export default async function ContentPage({
   const path = slug.join('/');
   const t = siteContent[locale];
   const page = t.pages[path as keyof typeof t.pages];
+  const pillar = getPillarPage(locale, path);
 
   if (!page) notFound();
 
   return (
     <SiteChrome locale={locale}>
       <main>
-        <section className="container page-hero">
-          <div className="eyebrow">KirokuFlow</div>
-          <h1>{page[0]}</h1>
-          <p>{page[1]}</p>
-          {path === 'features' ? <Image src="/assets/kf-hero-zh.png" alt="KirokuFlow features" width={1800} height={900} /> : null}
-          {path === 'use-cases' ? <Image src="/assets/kf-flow-illustration-soft.png" alt="KirokuFlow use cases" width={1536} height={864} /> : null}
-        </section>
-        {renderPage(path, locale, query.plan)}
+        {pillar ? (
+          <PillarGuide page={pillar} locale={locale} />
+        ) : (
+          <>
+            <section className="container page-hero">
+              <div className="eyebrow">KirokuFlow</div>
+              <h1>{page[0]}</h1>
+              <p>{page[1]}</p>
+              {path === 'features' ? <Image src="/assets/kf-hero-zh.png" alt="KirokuFlow features" width={1800} height={900} /> : null}
+              {path === 'use-cases' ? <Image src="/assets/kf-flow-illustration-soft.png" alt="KirokuFlow use cases" width={1536} height={864} /> : null}
+            </section>
+            {renderPage(path, locale, query.plan)}
+          </>
+        )}
       </main>
     </SiteChrome>
+  );
+}
+
+function PillarGuide({ page, locale }: { page: PillarPage; locale: Locale }) {
+  const localePath = publicLocale(locale);
+  const url = `${getSiteUrl()}/${localePath}/${page.slug}`;
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: page.title,
+    description: page.description,
+    dateModified: page.updatedAt,
+    author: { '@type': 'Organization', name: 'KirokuFlow' },
+    publisher: { '@type': 'Organization', name: 'KirokuFlow' },
+    mainEntityOfPage: url,
+    keywords: page.keywords.join(', ')
+  };
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: page.faq.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer }
+    }))
+  };
+
+  return (
+    <>
+      <article className="container pillar-shell">
+        <nav className="breadcrumb">
+          <Link href={`/${localePath}`}>KirokuFlow</Link>
+          <span>/</span>
+          <span>{page.target}</span>
+        </nav>
+        <header className="pillar-hero">
+          <div>
+            <span className="badge">{page.target}</span>
+            <h1>{page.title}</h1>
+            <p>{page.description}</p>
+            <div className="article-meta">
+              <span>Updated {page.updatedAt}</span>
+              <span>{page.readingTime}</span>
+              <span>{page.keywords.join(' / ')}</span>
+            </div>
+          </div>
+          <div className="pillar-visual" aria-label="KirokuFlow process diagram">
+            {page.flow.map((step, index) => (
+              <div className="pillar-node" key={step.title}>
+                <span>{index + 1}</span>
+                <strong>{step.title}</strong>
+              </div>
+            ))}
+          </div>
+        </header>
+
+        <aside className="pillar-summary">
+          <strong>このページの要点</strong>
+          {page.summary.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </aside>
+
+        <section className="pillar-flow" aria-label="Flow chart">
+          {page.flow.map((step, index) => (
+            <article key={step.title}>
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <h2>{step.title}</h2>
+              <p>{step.body}</p>
+            </article>
+          ))}
+        </section>
+
+        <div className="article-body">
+          {page.sections.map((section) => (
+            <section key={section.heading}>
+              <h2>{section.heading}</h2>
+              {section.body.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </section>
+          ))}
+        </div>
+
+        <section className="scenario-panel">
+          <div>
+            <span className="badge">Scenario</span>
+            <h2>想定される利用シーン</h2>
+          </div>
+          <div className="grid-3">
+            {page.scenario.map((item) => (
+              <article className="card" key={item.label}>
+                <h3>{item.label}</h3>
+                <p>{item.body}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="checklist-panel">
+          <h2>導入前チェックリスト</h2>
+          <div className="checklist-grid">
+            {page.checklist.map((item) => (
+              <div key={item}><span>✓</span>{item}</div>
+            ))}
+          </div>
+        </section>
+
+        <section className="faq-panel">
+          <h2>FAQ</h2>
+          {page.faq.map((item) => (
+            <details key={item.question}>
+              <summary>{item.question}</summary>
+              <p>{item.answer}</p>
+            </details>
+          ))}
+        </section>
+
+        <section className="cta-panel">
+          <h2>KirokuFlow で事務フローを整理する</h2>
+          <p>現在の申請、確認、支払い通知、保存の流れを棚卸しし、軽量な導入案に落とし込めます。</p>
+          <LeadForm locale={locale} sourceArticleSlug={page.slug} inquiryType="pillar_page" />
+        </section>
+      </article>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+    </>
   );
 }
 
