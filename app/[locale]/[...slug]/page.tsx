@@ -226,7 +226,7 @@ function AiServiceLanding({ page, locale }: { page: AiServicePage; locale: Local
 
         <section className="cta-panel">
           <h2>{locale === 'ja-JP' ? 'AI 文書ワークフローを相談する' : '討論 AI 文件工作流導入'}</h2>
-          <p>{locale === 'ja-JP' ? '現在の文書、知識庫、審査、公開フローを棚卸しし、段階的な導入案に落とし込めます。' : '可以先盤點目前的文件、知識庫、審核與發布流程，再規劃分階段導入。'}</p>
+          <p>{locale === 'ja-JP' ? '現在の文書、ナレッジベース、審査、公開フローを棚卸しし、段階的な導入案に落とし込めます。' : '可以先盤點目前的文件、知識庫、審核與發布流程，再規劃分階段導入。'}</p>
           <LeadForm locale={locale} sourceArticleSlug={page.slug} inquiryType={page.layer} />
         </section>
       </article>

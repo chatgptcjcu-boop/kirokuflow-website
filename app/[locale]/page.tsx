@@ -26,10 +26,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             <h1>{t.hero.title}</h1>
             <p>{t.hero.description}</p>
             <div className="hero-actions">
-              <Link className="button primary" href={`/${localePath}/contact`}>
+              <Link className="button primary" href={`/${localePath}/ai-workflow`}>
                 {t.hero.primaryCta}
               </Link>
-              <Link className="button secondary" href={`/${localePath}/blog`}>
+              <Link className="button secondary" href={`/${localePath}/resources`}>
                 {t.hero.secondaryCta}
               </Link>
             </div>
@@ -53,11 +53,11 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <section className="section">
           <div className="container">
             <div className="section-head">
-              <h2>{locale === 'ja-JP' ? '分散した事務を、一つの流れへ。' : '把分散的行政，整理成一條流。'}</h2>
+              <h2>{locale === 'ja-JP' ? 'AI を入れる前に、文書と判断の流れを整える。' : '導入 AI 之前，先整理文件與判斷流程。'}</h2>
               <p>
                 {locale === 'ja-JP'
-                  ? '小さく始めても、記録、承認、支払い、保存の流れを最初から意識して設計します。'
-                  : '即使從 Google Sheets 與 GAS 開始，也能先把記錄、審核、付款與留存的脈絡設計好。'}
+                  ? '文書が散らばったままでは、AI の回答も業務判断も安定しません。まず検索、引用、レビュー、記録の流れを設計します。'
+                  : '文件散落各處時，AI 回答與業務判斷都難以穩定。先把搜尋、引用、審核與紀錄流程設計好。'}
               </p>
             </div>
             <div className="grid-3">
@@ -76,7 +76,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <div className="container flow-band">
             <div>
               <div className="eyebrow">KirokuFlow</div>
-              <h2>{locale === 'ja-JP' ? '申請から保存まで見える化' : '從申請到留存，一路清楚可追蹤'}</h2>
+              <h2>{locale === 'ja-JP' ? '文書棚卸しから AI 利用記録まで' : '從文件盤點到 AI 使用紀錄'}</h2>
               <div className="steps">
                 {t.flow.map(([title, body], index) => (
                   <div className="step" key={title}>
@@ -96,11 +96,11 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <section className="section" id="features">
           <div className="container">
             <div className="section-head">
-              <h2>{locale === 'ja-JP' ? '必要な機能を軽く、でも確実に。' : '需要的功能要輕，但不能漏。'}</h2>
+              <h2>{locale === 'ja-JP' ? 'AI を業務で使うために必要な設計' : '讓 AI 能進入工作流程的必要設計'}</h2>
               <p>
                 {locale === 'ja-JP'
-                  ? '事務担当、財務担当、承認者、次の担当者が同じ記録を見られる状態を作ります。'
-                  : '讓承辦、財務、審核者與下一任接手的人，都能看見同一份可信任紀錄。'}
+                  ? '回答を生成するだけでなく、根拠、権限、レビュー、利用ログまで確認できる状態を作ります。'
+                  : '不只生成回答，也要能確認來源、權限、審核與使用紀錄。'}
               </p>
             </div>
             <div className="grid-3">

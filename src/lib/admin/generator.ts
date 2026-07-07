@@ -35,7 +35,7 @@ export async function generateDraft(topicId: string) {
     { question: '小さな組織でも使えますか？', answer: 'はい。Google Sheets と GAS を活用した軽量構成から始められます。' }
   ];
 
-  const jaBody = `# ${topic.topic_title}\n\nKirokuFlow は、会議、委員会、学校プロジェクト、研究費、協会活動の事務を、申請、確認、支払い通知、保存まで一つの流れとして整理する軽量な行政・経費フロー管理ツールです。本稿では「${topic.jp_keyword || topic.topic_title}」という検索意図に対して、実務で残すべき記録、確認ポイント、KirokuFlow で対応できる範囲を整理します。\n\n## 結論摘要\n\n小さな組織の行政 DX では、最初から大規模なシステムを作るよりも、申請、確認、通知、保存の状態を追跡できる形に整えることが重要です。\n\n## 実務流程建議\n\n1. 申請内容と添付資料を登録する\n2. 確認者と確認日を残す\n3. 支払い通知と振込先確認を記録する\n4. 完了後に監査と引き継ぎ用に保存する\n\n## KirokuFlow 可對應的功能\n\n${topic.product_mapping}\n\n## FAQ\n\n${faq.map((item) => `### ${item.question}\n\n${item.answer}`).join('\n\n')}\n\n## 参考來源\n\n${sources.length ? sources.map((source) => `- ${source.source_type}：${source.source_url}`).join('\n') : '- KirokuFlow product notes'}\n\n本記事は制度理解と業務整理のための一般情報です。税務・法務上の判断は、税理士、行政書士、弁護士、または各制度の公式窓口に確認してください。`;
+  const jaBody = `# ${topic.topic_title}\n\nKirokuFlow は、会議、委員会、学校プロジェクト、研究費、協会活動の事務を、申請、確認、支払い通知、保存まで一つの流れとして整理する軽量な行政・経費フロー管理ツールです。本稿では「${topic.jp_keyword || topic.topic_title}」という検索意図に対して、実務で残すべき記録、確認ポイント、KirokuFlow で対応できる範囲を整理します。\n\n## 要点\n\n小さな組織の行政 DX では、最初から大規模なシステムを作るよりも、申請、確認、通知、保存の状態を追跡できる形に整えることが重要です。\n\n## 実務フローの考え方\n\n1. 申請内容と添付資料を登録する\n2. 確認者と確認日を残す\n3. 支払い通知と振込先確認を記録する\n4. 完了後に監査と引き継ぎ用に保存する\n\n## KirokuFlow で支援できる範囲\n\n${topic.product_mapping}\n\n## FAQ\n\n${faq.map((item) => `### ${item.question}\n\n${item.answer}`).join('\n\n')}\n\n## 参考出典\n\n${sources.length ? sources.map((source) => `- ${source.source_type}：${source.source_url}`).join('\n') : '- KirokuFlow product notes'}\n\n本記事は制度理解と業務整理のための一般情報です。税務・法務上の判断は、税理士、行政書士、弁護士、または各制度の公式窓口に確認してください。`;
 
   const zhBody = `# ${topic.topic_title}\n\nKirokuFlow｜紀錄流 是面向台灣與日本市場的輕量行政與經費流程管理工具，協助會議、委員會、學校計畫、研究補助、協會活動與專案型工作建立可追蹤、可交接、可稽核的數位流程。本文針對「${topic.zh_keyword || topic.topic_title}」整理實務紀錄、審核與留存重點。\n\n## 結論摘要\n\n小型組織的行政 DX 不一定要從大型系統開始，而是先把申請、確認、通知與保存狀態整理成可追蹤流程。\n\n## 實務流程建議\n\n1. 登錄申請內容與附件\n2. 保留審核者與審核日期\n3. 記錄付款通知與收款帳戶確認\n4. 完成後保留稽核與交接資料\n\n## KirokuFlow 可對應的功能\n\n${topic.product_mapping}\n\n## FAQ\n\n### 應該從哪一步開始？\n\n建議先從申請、審核、通知與保存四個狀態開始整理。\n\n### KirokuFlow 是會計系統嗎？\n\n不是。KirokuFlow 用於整理行政與經費流程前端紀錄，不取代會計或稅務申報系統。\n\n### 小型組織可以使用嗎？\n\n可以。可先以 Google Sheets 與 GAS 的輕量架構開始。\n\n## 參考來源\n\n${sources.length ? sources.map((source) => `- ${source.source_type}：${source.source_url}`).join('\n') : '- KirokuFlow product notes'}\n\n本文提供制度理解與流程整理的一般資訊。涉及稅務、法務或補助金申請判斷時，應以主管機關公告與專業人士意見為準。`;
 
@@ -66,7 +66,7 @@ export async function generateDraft(topicId: string) {
       schema_json: {},
       internal_links: ['/zh-TW/templates', '/zh-TW/contact', '/zh-TW/audit-trail-guide'],
       cta_copy: '預約導入討論，一起盤點目前行政與經費流程。',
-      review_notes: reviewRequired ? '高風險內容，排程前需人工審稿。' : '低風險 MVP 模板草稿。'
+      review_notes: reviewRequired ? '高リスク内容です。予約投稿前に人によるレビューが必要です。' : '低リスクの MVP テンプレート草稿です。'
     }
   ]);
 
