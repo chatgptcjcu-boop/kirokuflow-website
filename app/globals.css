@@ -1035,6 +1035,305 @@ textarea {
   font-weight: 800;
 }
 
+.genai-shell,
+.genai-article-shell {
+  padding: 54px 0 92px;
+}
+
+.genai-hero,
+.genai-article-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(420px, 1.1fr);
+  align-items: center;
+  gap: 34px;
+  padding: 42px 0 34px;
+}
+
+.genai-hero h1,
+.genai-article-hero h1 {
+  margin: 18px 0;
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 1.1;
+}
+
+.genai-hero p,
+.genai-article-hero p {
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.82;
+}
+
+.genai-hero-media,
+.genai-article-hero img {
+  overflow: hidden;
+  border: 1px solid rgba(9, 48, 78, 0.1);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+
+.genai-hero-media img,
+.genai-article-hero img {
+  width: 100%;
+  height: auto;
+}
+
+.genai-message {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  overflow: hidden;
+  margin: 26px 0 76px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--line);
+}
+
+.genai-message div {
+  min-height: 150px;
+  padding: 28px;
+  background: rgba(255, 255, 255, 0.86);
+}
+
+.genai-message strong,
+.source-item strong {
+  display: block;
+  color: var(--teal);
+}
+
+.genai-message p,
+.source-item p {
+  color: var(--muted);
+  line-height: 1.72;
+}
+
+.genai-article-grid,
+.evidence-block,
+.content-panel,
+.whitepaper-panel {
+  margin-top: 72px;
+}
+
+.genai-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  color: inherit;
+  text-decoration: none;
+  box-shadow: var(--shadow);
+}
+
+.genai-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.genai-card h3 {
+  margin: 0;
+  padding: 18px 18px 8px;
+  font-size: 21px;
+  line-height: 1.36;
+}
+
+.genai-card p {
+  margin: 0;
+  padding: 0 18px 22px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.genai-number {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  border-radius: 8px;
+  background: #071f4d;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 900;
+  padding: 8px 11px;
+}
+
+.content-panel {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.82);
+  padding: 10px 28px 28px;
+}
+
+.source-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.source-item {
+  display: block;
+  border: 1px solid rgba(13, 91, 90, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.84);
+  padding: 18px;
+  text-decoration: none;
+}
+
+.source-item span {
+  display: block;
+  margin-top: 6px;
+  color: rgba(15, 31, 46, 0.62);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.whitepaper-panel {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.82fr) minmax(360px, 1.18fr);
+  gap: 28px;
+  align-items: start;
+  border: 1px solid rgba(13, 91, 90, 0.18);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at top right, rgba(95, 163, 163, 0.18), transparent 20rem),
+    #ffffff;
+  box-shadow: var(--shadow);
+  padding: 32px;
+}
+
+.whitepaper-panel h2 {
+  margin: 14px 0;
+  font-size: clamp(30px, 4vw, 46px);
+  line-height: 1.15;
+}
+
+.whitepaper-panel p {
+  color: var(--muted);
+  line-height: 1.76;
+}
+
+.genai-form fieldset {
+  margin: 18px 0 0;
+  border: 1px solid rgba(13, 91, 90, 0.18);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.genai-form legend {
+  color: var(--teal);
+  font-weight: 900;
+}
+
+.form-grid.two {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.genai-form label {
+  display: grid;
+  gap: 7px;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.genai-form input,
+.genai-form select {
+  width: 100%;
+  border: 1px solid rgba(9, 48, 78, 0.16);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  padding: 12px;
+}
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.checkbox-grid label,
+.consent-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.checkbox-grid input,
+.consent-row input {
+  width: auto;
+  margin-top: 3px;
+}
+
+.consent-row {
+  margin: 16px 0;
+}
+
+.genai-article-layout {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 34px;
+  align-items: start;
+  margin-top: 40px;
+}
+
+.article-toc {
+  position: sticky;
+  top: 110px;
+  display: grid;
+  gap: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.86);
+  padding: 18px;
+}
+
+.article-toc strong {
+  color: var(--teal);
+}
+
+.article-toc a {
+  color: var(--muted);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.standalone-thankyou {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  background:
+    radial-gradient(circle at top right, rgba(95, 163, 163, 0.22), transparent 26rem),
+    var(--paper);
+  padding: 24px;
+}
+
+.download-card {
+  width: min(680px, 100%);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: var(--shadow);
+  padding: 36px;
+}
+
+.download-card h1 {
+  margin: 14px 0;
+  font-size: clamp(36px, 5vw, 56px);
+}
+
+.download-card p {
+  color: var(--muted);
+  line-height: 1.8;
+}
+
 .footer {
   border-top: 1px solid var(--line);
   padding: 40px 0;
@@ -1057,7 +1356,11 @@ textarea {
   .flow-band,
   .grid-2,
   .service-hero,
-  .pillar-hero {
+  .pillar-hero,
+  .genai-hero,
+  .genai-article-hero,
+  .whitepaper-panel,
+  .genai-article-layout {
     grid-template-columns: 1fr;
   }
 
@@ -1069,9 +1372,17 @@ textarea {
   .service-bullets,
   .service-sections,
   .case-grid,
-  .pillar-flow,
-  .checklist-grid {
+    .pillar-flow,
+    .checklist-grid,
+    .genai-message,
+    .source-list,
+    .form-grid.two,
+    .checkbox-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .article-toc {
+    position: static;
   }
 
   .nav-links {
@@ -1118,8 +1429,12 @@ textarea {
   .service-bullets,
   .service-sections,
   .case-grid,
-  .pillar-flow,
-  .checklist-grid {
+    .pillar-flow,
+    .checklist-grid,
+    .genai-message,
+    .source-list,
+    .form-grid.two,
+    .checkbox-grid {
     grid-template-columns: 1fr;
   }
 

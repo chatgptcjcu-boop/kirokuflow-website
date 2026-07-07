@@ -1,0 +1,91 @@
+{
+  "topic_page": "content/topic-page/japan-government-ai-genai.md",
+  "articles": [
+    {
+      "no": "01",
+      "title": "日本數位廳 GENAI 是什麼？企業 AI 導入可以學到什麼",
+      "slug": "japan-digital-agency-genai-enterprise-ai",
+      "file": "content/articles/01-japan-digital-agency-genai-enterprise-ai.md",
+      "thumbnail": "assets/thumbnails/ja/01.png"
+    },
+    {
+      "no": "02",
+      "title": "企業導入生成式 AI，為什麼需要內部知識庫",
+      "slug": "enterprise-genai-internal-knowledge-base",
+      "file": "content/articles/02-enterprise-genai-internal-knowledge-base.md",
+      "thumbnail": "assets/thumbnails/ja/02.png"
+    },
+    {
+      "no": "03",
+      "title": "RAG 是什麼？從日本政府 AI 應用看文件查詢系統",
+      "slug": "rag-government-ai-document-search",
+      "file": "content/articles/03-rag-government-ai-document-search.md",
+      "thumbnail": "assets/thumbnails/ja/03.png"
+    },
+    {
+      "no": "04",
+      "title": "AI 文件自動化如何降低行政與報告負擔",
+      "slug": "ai-document-automation-administration-reporting",
+      "file": "content/articles/04-ai-document-automation-administration-reporting.md",
+      "thumbnail": "assets/thumbnails/ja/04.png"
+    },
+    {
+      "no": "05",
+      "title": "從政府 AI 到企業 AI：安全、權限與資料治理怎麼設計",
+      "slug": "government-ai-enterprise-ai-security-permission-data-governance",
+      "file": "content/articles/05-government-ai-enterprise-ai-security-permission-data-governance.md",
+      "thumbnail": "assets/thumbnails/ja/05.png"
+    },
+    {
+      "no": "06",
+      "title": "AI 工作流儀表板應該追蹤哪些指標",
+      "slug": "ai-workflow-dashboard-metrics",
+      "file": "content/articles/06-ai-workflow-dashboard-metrics.md",
+      "thumbnail": "assets/thumbnails/ja/06.png"
+    },
+    {
+      "no": "07",
+      "title": "生成式 AI 不是只做聊天，如何重設企業工作流程",
+      "slug": "genai-beyond-chat-enterprise-workflow-redesign",
+      "file": "content/articles/07-genai-beyond-chat-enterprise-workflow-redesign.md",
+      "thumbnail": "assets/thumbnails/ja/07.png"
+    },
+    {
+      "no": "08",
+      "title": "中小企業如何用 AI 建立內部 SOP 查詢系統",
+      "slug": "sme-ai-sop-search-system",
+      "file": "content/articles/08-sme-ai-sop-search-system.md",
+      "thumbnail": "assets/thumbnails/ja/08.png"
+    },
+    {
+      "no": "09",
+      "title": "會議紀錄如何變成可搜尋的組織知識",
+      "slug": "meeting-records-searchable-organizational-knowledge",
+      "file": "content/articles/09-meeting-records-searchable-organizational-knowledge.md",
+      "thumbnail": "assets/thumbnails/ja/09.png"
+    },
+    {
+      "no": "10",
+      "title": "AI 內容生成器如何協助官網持續發文",
+      "slug": "ai-content-generator-seo-geo-gai",
+      "file": "content/articles/10-ai-content-generator-seo-geo-gai.md",
+      "thumbnail": "assets/thumbnails/ja/10.png"
+    },
+    {
+      "no": "11",
+      "title": "法規、政策與公告如何轉成 AI 可引用知識庫",
+      "slug": "policy-regulation-announcement-ai-citable-knowledge-base",
+      "file": "content/articles/11-policy-regulation-announcement-ai-citable-knowledge-base.md",
+      "thumbnail": "assets/thumbnails/ja/11.png"
+    },
+    {
+      "no": "12",
+      "title": "企業 AI 導入失敗的主因：資料、流程與權限沒有整理",
+      "slug": "enterprise-ai-failure-data-process-permission",
+      "file": "content/articles/12-enterprise-ai-failure-data-process-permission.md",
+      "thumbnail": "assets/thumbnails/ja/12.png"
+    }
+  ],
+  "whitepaper": "whitepaper/kirokuflow-genai-whitepaper.md",
+  "cta_form": "forms/cta_lead_form_spec.md"
+}

@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { getAllAiServiceSlugs } from '@/src/lib/aiServiceContent';
 import { getAllBlogPosts } from '@/src/lib/blog';
+import { getGenaiArticles } from '@/src/lib/genai';
 import { getSiteUrl } from '@/src/lib/siteUrl';
 import { publicLocale } from '@/src/lib/siteContent';
 
@@ -16,6 +17,7 @@ const pageSlugs = [
   'google-sheets-gas-workflow',
   'payment-notification-workflow',
   'ai-administration-governance',
+  'japan-government-ai-genai',
   'legal/tokushoho'
 ];
 
@@ -35,5 +37,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'weekly' as const,
     priority: 0.8
   }));
-  return [...pages, ...posts];
+  const genaiArticles = ['ja', 'zh-TW'].flatMap((locale) =>
+    getGenaiArticles().map((article) => ({
+      url: `${site}/${locale}/japan-government-ai-genai/articles/${article.slug}`,
+      lastModified: article.lastReviewed ? new Date(article.lastReviewed) : new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.82
+    }))
+  );
+  return [...pages, ...posts, ...genaiArticles];
 }

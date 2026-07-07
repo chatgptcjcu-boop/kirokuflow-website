@@ -9,7 +9,8 @@ const aiEntrySlugs = [
   '/content-factory',
   '/case-studies',
   '/ai-governance',
-  '/resources'
+  '/resources',
+  '/japan-government-ai-genai'
 ];
 
 function detectLocale(request: NextRequest) {
@@ -23,7 +24,7 @@ function detectLocale(request: NextRequest) {
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  if (pathname.startsWith('/api') || pathname.startsWith('/admin') || pathname.startsWith('/_next') || pathname.includes('.')) {
+  if (pathname.startsWith('/api') || pathname.startsWith('/admin') || pathname.startsWith('/thank-you') || pathname.startsWith('/_next') || pathname.includes('.')) {
     return NextResponse.next();
   }
 

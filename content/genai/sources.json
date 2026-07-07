@@ -1,0 +1,90 @@
+[
+  {
+    "id": "JP-GENAI-POLICY-2026-05-29",
+    "title": "Government AI “GENAI”",
+    "publisher": "Digital Agency, Government of Japan",
+    "date": "2026-05-29",
+    "url": "https://www.digital.go.jp/en/policies/genai",
+    "notes": "GENAI 政策入口頁；說明 2026 年度約 180,000 名中央部會職員可使用生成式 AI。"
+  },
+  {
+    "id": "JP-GENAI-PILOT-2026-03-06",
+    "title": "Launch of Large-Scale Pilot Project of Government AI “GENNAI” targeting 180,000 Employees",
+    "publisher": "Digital Agency, Government of Japan",
+    "date": "2026-03-06; updated 2026-03-13",
+    "url": "https://www.digital.go.jp/en/news/2d69c287-2897-46d8-a28f-ea5a1fc9bce9",
+    "notes": "說明大型試點、2026/05-2027/03 時程、CAIO、治理、流程轉型、政府共通資料集與 AI Agents。"
+  },
+  {
+    "id": "JP-GENAI-OSS-2026-04-24",
+    "title": "Release of Government AI “GENAI” as Open Source Software (OSS)",
+    "publisher": "Digital Agency, Government of Japan",
+    "date": "2026-04-24",
+    "url": "https://www.digital.go.jp/en/news/907c8e5d-2f4f-4bd7-9400-37c9f4221d7d",
+    "notes": "釋出 GENAI Web 介面、RAG 行政應用模板、自建 LLM 模板與法規查詢應用範例。"
+  },
+  {
+    "id": "TW-AI-ACTION-2-2023",
+    "title": "臺灣 AI 行動計畫 2.0（2023-2026 年）",
+    "publisher": "行政院智慧國家推動小組 / STPI 科技政策觀測平台",
+    "date": "2023-02",
+    "url": "https://outlook.stpi.niar.org.tw/index/tdop/4b114100887519230188936f139a36e3",
+    "notes": "台灣 AI 政策基礎，適合作為企業 AI 導入與產業化對照。"
+  },
+  {
+    "id": "TW-TEN-AI-INITIATIVES-2026",
+    "title": "Ten AI Initiatives Promotion Plan",
+    "publisher": "National Development Council, Taiwan",
+    "date": "2026-03-31",
+    "url": "https://www.ndc.gov.tw/en/Content_List.aspx?n=E738D6D7DD31163F",
+    "notes": "行政院 2026 年核定十大 AI 新建設推動方案，作為台灣 AI 基礎建設與產業政策對照。"
+  },
+  {
+    "id": "KR-NATIONAL-AI-STRATEGY-2024",
+    "title": "National AI Strategy Policy Directions",
+    "publisher": "Ministry of Science and ICT, Republic of Korea",
+    "date": "2024",
+    "url": "https://www.msit.go.kr/eng/bbs/view.do?bbsSeqNo=42&mId=4&mPid=2&nttSeqNo=1040&pageIndex=&sCode=eng&searchOpt=ALL&searchTxt=",
+    "notes": "韓國 AI G3 方向，以國家 AI 委員會與產業競爭力為主軸。"
+  },
+  {
+    "id": "KR-AI-BASIC-ACT-2024",
+    "title": "A New Chapter in the Age of AI: Basic Act on AI Passed",
+    "publisher": "Ministry of Science and ICT, Republic of Korea",
+    "date": "2024",
+    "url": "https://www.msit.go.kr/eng/bbs/view.do?bbsSeqNo=42&mId=4&mPid=2&nttSeqNo=1071&pageIndex=&sCode=eng&searchOpt=ALL&searchTxt=",
+    "notes": "韓國 AI 基本法，涵蓋治理架構、產業扶植與風險預防。"
+  },
+  {
+    "id": "US-OMB-M-24-10-2024-03-28",
+    "title": "M-24-10: Advancing Governance, Innovation, and Risk Management for Agency Use of Artificial Intelligence",
+    "publisher": "U.S. Office of Management and Budget",
+    "date": "2024-03-28",
+    "url": "https://www.whitehouse.gov/wp-content/uploads/2024/03/M-24-10-Advancing-Governance-Innovation-and-Risk-Management-for-Agency-Use-of-Artificial-Intelligence.pdf",
+    "notes": "美國聯邦機關 AI 治理、創新與風險管理備忘錄。"
+  },
+  {
+    "id": "US-NIST-AI-RMF-1-2023",
+    "title": "Artificial Intelligence Risk Management Framework (AI RMF 1.0)",
+    "publisher": "National Institute of Standards and Technology",
+    "date": "2023-01",
+    "url": "https://nvlpubs.nist.gov/nistpubs/ai/nist.ai.100-1.pdf",
+    "notes": "AI 風險管理框架，可對應企業導入之風險分類、測量、治理與監控。"
+  },
+  {
+    "id": "ISO-IEC-42001-2023",
+    "title": "ISO/IEC 42001:2023 Artificial intelligence — Management system",
+    "publisher": "ISO",
+    "date": "2023",
+    "url": "https://www.iso.org/standard/42001",
+    "notes": "AI 管理系統國際標準，適合作為 KirokuFlow AI Governance 頁面與企業導入方案依據。"
+  },
+  {
+    "id": "OPENAI-JP-DIGITAL-AGENCY-2025-10-02",
+    "title": "Strategic collaboration with Japan’s Digital Agency",
+    "publisher": "OpenAI",
+    "date": "2025-10-02",
+    "url": "https://openai.com/global-affairs/strategic-collaboration-with-japan-digital-agency/",
+    "notes": "OpenAI 與日本數位廳合作，探索生成式 AI 安全有效提升公共服務。"
+  }
+]

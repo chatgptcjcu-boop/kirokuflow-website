@@ -238,6 +238,7 @@ function AiServiceLanding({ page, locale }: { page: AiServicePage; locale: Local
 
 function ResourceIndex({ localePath }: { localePath: string }) {
   const resources = [
+    ['japan-government-ai-genai', '日本 GENAI 比較特集 / Government AI'],
     ['backoffice-dx-guide', '行政 DX / Backoffice DX'],
     ['audit-trail-guide', '監査証跡 / Audit Trail'],
     ['subsidy-management-guide', '補助金・研究費管理'],
