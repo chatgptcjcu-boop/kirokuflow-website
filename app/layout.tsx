@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://kirokuflow-website.vercel.app'),
   title: 'KirokuFlow Group',
   description: '輕量行政與經費流程管理工具，協助團隊整理紀錄、串接流程、留下可信任的稽核軌跡。',
   openGraph: {
