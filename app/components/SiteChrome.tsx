@@ -6,6 +6,8 @@ export function SiteChrome({ locale, children }: { locale: Locale; children: Rea
   const t = siteContent[locale];
   const currentLocale = publicLocale(locale);
   const otherLocale = oppositeLocale(locale);
+  const meetingUrl = process.env.NEXT_PUBLIC_MEETING_URL?.trim();
+  const meetingLabel = locale === 'ja-JP' ? '日中字幕' : '中日字幕';
 
   return (
     <div className="site-shell">
@@ -23,6 +25,11 @@ export function SiteChrome({ locale, children }: { locale: Locale; children: Rea
             <Link href="/admin">Admin</Link>
           </nav>
           <div className="nav-actions">
+            {meetingUrl ? (
+              <a className="meeting-link" href={meetingUrl} target="_blank" rel="noopener noreferrer">
+                {meetingLabel}
+              </a>
+            ) : null}
             <Link className="lang-link" href={`/${otherLocale}`}>
               {t.nav.otherLocale}
             </Link>

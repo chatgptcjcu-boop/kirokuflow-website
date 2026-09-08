@@ -23,4 +23,7 @@ Stripe checkout is prepared but optional during the first phase.
 ```bash
 STRIPE_SECRET_KEY=
 NEXT_PUBLIC_SITE_URL=
+NEXT_PUBLIC_MEETING_URL=
 ```
+
+`NEXT_PUBLIC_MEETING_URL` is intentionally optional. When it is blank, the Japanese 「日中字幕」 and Traditional Chinese 「中日字幕」 navigation entry is not rendered. Set it to the confirmed HTTPS meeting service URL only after Render deployment and a real microphone meeting test pass.
